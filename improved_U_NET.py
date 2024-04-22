@@ -32,11 +32,9 @@ def attention_gate(input_tensor, gate_tensor, num_filters):
     return x
 
 def conv_block(input_tensor, num_filters):
-    # Modify the conv_block to include a residual structure
     x = residual_block(input_tensor, num_filters)
     return x
 
-# Modify the encoder_block to return the residual block output
 def encoder_block(input_tensor, num_filters):
     x = conv_block(input_tensor, num_filters)
     p = layers.MaxPooling2D((2, 2))(x)
